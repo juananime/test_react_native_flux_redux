@@ -5,5 +5,7 @@ export const LOGIN_USER_SUCCESS = 'login_user_success';
 export const LOGIN_USER_FAIL = 'LOGIN_USER_FAIL';
 export const LOGIN_USER = 'LOGIN_USER';
 
+export const PACO_TYPED = 'PACO_TYPED';
+
 
 
