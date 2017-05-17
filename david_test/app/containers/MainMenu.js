@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Container, Content, Header, Icon, Spinner, Switch, Text, Title} from "native-base";
+import {Body, Button, Container, Content, Header, Icon, Label, Input, Item, Title} from "native-base";
 import {Col, Grid, Row} from "react-native-easy-grid";
 
 import {pacoisTyped} from "../actions/PacoActions"
@@ -35,7 +35,7 @@ class mainMenu extends Component {
             locationSelectedPicker: {},
             enablePicker: true,
 
-            pacoField:'no paco'
+            pacoField:''
 
         };
     }
@@ -53,6 +53,12 @@ class mainMenu extends Component {
 
     onPacoTypedChanged(txt){
         console.log('paco text ====>>> '+txt);
+
+        this.setState({pacoField:txt})
+
+        if(txt === 'paco'){
+            this.props.pacoisTyped();
+        }
     }
 
     render() {
