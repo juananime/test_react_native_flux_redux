@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {Actions} from "react-native-router-flux";
 import {Button, Content, Form, Input, Item, Label, Spinner} from "native-base";
 import {Col, Grid, Row} from "react-native-easy-grid";
-
+import firebase from "firebase";
 import { emailChanged, passwordChanged, loginUser,userStored } from '../actions/AuthActions';
 
 class LoginForm extends Component {
@@ -24,7 +24,18 @@ class LoginForm extends Component {
     }
 
     componentDidMount(){
+        this.doFireBase();
+    }
 
+    doFireBase() {
+        const config = {
+            apiKey: 'AIzaSyAd3ajChrBXWlux-3N6ZfCehdg9WXpNDmY',
+            authDomain: 'manager-77ca0.firebaseapp.com',
+            databaseURL: 'https://manager-77ca0.firebaseio.com',
+            storageBucket: 'manager-77ca0.appspot.com',
+            messagingSenderId: '987956351735'
+        };
+        firebase.initializeApp(config);
     }
 
     onEmailChange(text) {
