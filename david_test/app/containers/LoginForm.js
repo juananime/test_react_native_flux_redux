@@ -5,6 +5,8 @@ import {Actions} from "react-native-router-flux";
 import {Button, Content, Form, Input, Item, Label, Spinner} from "native-base";
 import {Col, Grid, Row} from "react-native-easy-grid";
 
+import { emailChanged, passwordChanged, loginUser,userStored } from '../actions/AuthActions';
+
 class LoginForm extends Component {
 
     constructor(props) {
@@ -127,5 +129,5 @@ const mapStateToProps = ({ auth }) => {
 };
 
 export default connect(mapStateToProps, {
-
+    emailChanged, passwordChanged, loginUser,userStored
 })(LoginForm);
