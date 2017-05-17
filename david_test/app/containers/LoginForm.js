@@ -1,12 +1,9 @@
-import React, { Component } from 'react';
-import { Text, AsyncStorage, Image } from 'react-native';
-import { connect } from 'react-redux';
-import { emailChanged, passwordChanged, loginUser, userStored } from '../actions/AuthActions';
-import { Card, CardSection } from './common';
-import { Actions } from 'react-native-router-flux';
-import { Container, Content, Form, Item, Input, Button, Label, Spinner } from 'native-base';
-import { Col, Row, Grid } from 'react-native-easy-grid';
-import BaseViewScreen from '../BaseViewScreen'
+import React, {Component} from "react";
+import {AsyncStorage, Image, Text} from "react-native";
+import {connect} from "react-redux";
+import {Actions} from "react-native-router-flux";
+import {Button, Content, Form, Input, Item, Label, Spinner} from "native-base";
+import {Col, Grid, Row} from "react-native-easy-grid";
 
 class LoginForm extends Component {
 
@@ -67,7 +64,7 @@ class LoginForm extends Component {
 
     render() {
         return (
-            <BaseViewScreen>
+
                 <Content style={{ padding: 22 }}>
                     <Grid>
                         <Row>
@@ -109,7 +106,7 @@ class LoginForm extends Component {
                         </Row>
                     </Grid>
                 </Content>
-            </BaseViewScreen>
+
 
         );
     }

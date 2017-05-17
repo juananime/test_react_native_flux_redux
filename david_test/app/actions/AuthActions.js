@@ -1,16 +1,5 @@
-import firebase from 'firebase';
-import {
-    AsyncStorage
-} from 'react-native';
-import { Actions } from 'react-native-router-flux';
-import {
-    EMAIL_CHANGED,
-    PASSWORD_CHANGED,
-    LOGIN_USER_SUCCESS,
-    LOGIN_USER_FAIL,
-    LOGIN_USER
-} from './types';
-
+import firebase from "firebase";
+import {EMAIL_CHANGED, LOGIN_USER, LOGIN_USER_FAIL, LOGIN_USER_SUCCESS, PASSWORD_CHANGED} from "./types";
 
 
 export const userStored = (user) => {
