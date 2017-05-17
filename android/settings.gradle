@@ -1,0 +1,3 @@
+rootProject.name = 'test_react_native_flux_redux'
+
+include ':app'

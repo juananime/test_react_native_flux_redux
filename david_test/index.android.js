@@ -1,15 +1,18 @@
-import { Router } from 'react-native-router-flux';
-import { Provider } from 'react-redux';
-const ConnectedRouter = connect()(Router);
-const store = createStore(appReducer);
-export default class RnrfExample extends Component {
-    render() {
-        return (
-            <Provider store={store}>
-              <ConnectedRouter scenes={Scenes}/>
-            </Provider>
-        );
-    }
-}
+import React from 'react'
+import { AppRegistry ,StatusBar} from 'react-native'
 
-AppRegistry.registerComponent('david_test', () => david_test);
+import configureStore from './app/configureStore'
+//import NavRoot from './app/components/NavRootContainer'
+import AppContainer from './app/AppContainer'
+
+import { Provider } from 'react-redux'
+const store = configureStore({})
+const App = () => (
+    <Provider store={store}>
+
+      <AppContainer />
+    </Provider>
+)
+
+
+AppRegistry.registerComponent('david_test', () => App);
