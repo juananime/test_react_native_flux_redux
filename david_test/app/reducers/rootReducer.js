@@ -4,9 +4,10 @@
 import {combineReducers} from "redux";
 
 import auth from "./AuthReducer";
+import paco from "./PacoReducer";
 
 const rootReducer = combineReducers({
-  auth,
+  auth, paco
 
 });
 

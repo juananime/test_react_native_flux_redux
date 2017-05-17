@@ -3,6 +3,8 @@ import {Actions} from "react-native-router-flux";
 import {Body, Button, Container, Content, Header, Icon, Spinner, Switch, Text, Title} from "native-base";
 import {Col, Grid, Row} from "react-native-easy-grid";
 
+import {pacoisTyped} from "../actions/PacoActions"
+
 
 import {connect} from "react-redux";
 
@@ -33,33 +35,25 @@ class mainMenu extends Component {
             locationSelectedPicker: {},
             enablePicker: true,
 
+            pacoField:'no paco'
 
         };
-
-
     }
 
 
     componentWillUpdate(nextProps) {
-
-
-
-
     }
 
     componentDidUpdate(prevProps, prevState) {
-
-
-
     }
 
     componentDidMount() {
-
-
-        console.log('====>>>  ',this.props.auth)
     }
 
 
+    onPacoTypedChanged(txt){
+        console.log('paco text ====>>> '+txt);
+    }
 
     render() {
 
@@ -72,7 +66,14 @@ class mainMenu extends Component {
                     </Body>
                 </Header>
                 <Content style={{padding: 5}}>
-                    {this.state.showspinner && <Spinner /> }
+                    <Item floatingLabel last>
+                        <Label>Paco Field</Label>
+                        <Input
+
+                            onChangeText={this.onPacoTypedChanged.bind(this)}
+                            value={this.state.pacoField}
+                        />
+                    </Item>
 
                 </Content>
             </Container>
@@ -84,16 +85,20 @@ class mainMenu extends Component {
 
 function mapStateToProps(state) {
     return {
-        auth: state.auth,
-
+        auth:state.auth,
+        paco:state.paco,
 
     }
 
 }
 
+function mapDispatchToProps (dispatch) {
+    return {
 
-export default connect(mapStateToProps, {
+        pacoisTyped: () => dispatch(pacoisTyped()),
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(mainMenu)
 
 
-
-})(mainMenu);
