@@ -19,8 +19,25 @@ class LoginForm extends Component {
     }
 
     componentWillMount() {
+        AsyncStorage.getItem('dbUser').then((value) => {
+            if (value !== null) {
+                // key exists
+                var user = { uid: value };
 
+                this.props.userStored(user)
+            } else {
+                // key does not exist
+            }
+        });
 
+        AsyncStorage.getItem('curlocid').then((value) => {
+            if (value !== null) {
+                // key exists
+            } else {
+                // key does not exist
+                AsyncStorage.setItem('curlocid', 'none');
+            }
+        });
     }
 
     componentDidMount(){

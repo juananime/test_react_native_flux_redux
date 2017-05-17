@@ -14,11 +14,6 @@ const goToItems = () => {
 
 
 
-
-const formatBeaconId = function (beacon) {
-    return (beacon.identifier + '_' + beacon.uuid+'_'+beacon.major+'_'+beacon.minor);
-}
-
 class mainMenu extends Component {
 
     constructor(props) {
@@ -48,6 +43,8 @@ class mainMenu extends Component {
     componentWillUpdate(nextProps) {
 
 
+
+
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -59,7 +56,7 @@ class mainMenu extends Component {
     componentDidMount() {
 
 
-
+        console.log('====>>>  ',this.props.auth)
     }
 
 
