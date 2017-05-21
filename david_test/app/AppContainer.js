@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component,PropTypes} from "react";
 import {connect} from "react-redux";
 
 import LoginForm from "./containers/LoginForm";
@@ -35,6 +35,7 @@ class AppContainer extends Component {
         );
     }
 }
+
 
 function mapStateToProps(state) {
     return {

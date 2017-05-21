@@ -7,15 +7,17 @@ import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 const loggerMiddleware = createLogger({ predicate:(getState, action) => __DEV__});
 import reducer from './reducers/rootReducer';
+import createSagaMiddleware from 'redux-saga'
+import dataSaga from './sagas/sagas'
 
+
+const sagaMiddleware = createSagaMiddleware()
 export default function configureStore(initalState) {
-    const enhancer = compose(
-        applyMiddleware(
-            thunkMiddleware,
-            loggerMiddleware
-        )
-    );
 
-    return createStore(reducer, initalState,enhancer);
+   // return createStore(reducer, initalState,enhancer);
+    return {
+        ...createStore(reducer, initalState, applyMiddleware(thunkMiddleware,sagaMiddleware,loggerMiddleware)),
+        runSaga: sagaMiddleware.run(dataSaga)
+    }
 
 }

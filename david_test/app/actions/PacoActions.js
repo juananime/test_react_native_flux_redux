@@ -1,7 +1,7 @@
 /**
  * Created by Fabacus on 17/05/2017.
  */
-import {PACO_TYPED} from "./types";
+import {PACO_TYPED,FETCHING_DATA} from "./types";
 
 
 export function pacoisTyped() {
@@ -16,4 +16,11 @@ export function onPacoTyped({ payload }) {
         type: PACO_TYPED,
         payload,
     };
+}
+
+
+export function fetchData() {
+    return {
+        type: FETCHING_DATA
+    }
 }

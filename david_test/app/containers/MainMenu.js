@@ -1,11 +1,13 @@
-import React, {Component} from "react";
+import React, {Component,PropTypes} from "react";
 import {Actions} from "react-native-router-flux";
 import {Body, Button, Container, Content, Header, Icon, Label, Input, Item, Title} from "native-base";
 import {Col, Grid, Row} from "react-native-easy-grid";
 
-import {pacoisTyped} from "../actions/PacoActions"
+import {pacoisTyped,fetchData} from "../actions/PacoActions"
 
 
+
+import { FETCHING_DATA } from '../actions/types'
 import {connect} from "react-redux";
 
 
@@ -56,9 +58,7 @@ class mainMenu extends Component {
 
         this.setState({pacoField:txt})
 
-        if(txt === 'paco'){
-            this.props.pacoisTyped();
-        }
+        this.props.fetchData()
     }
 
     render() {
@@ -89,22 +89,24 @@ class mainMenu extends Component {
 }
 
 
-function mapStateToProps(state) {
+
+function mapStateToProps (state) {
     return {
-        auth:state.auth,
-        paco:state.paco,
-
+        paco: state.paco
     }
-
 }
 
 function mapDispatchToProps (dispatch) {
     return {
-
-        pacoisTyped: () => dispatch(pacoisTyped()),
+        fetchData: () => dispatch(fetchData())
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(mainMenu)
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(mainMenu)
+
+
 
 

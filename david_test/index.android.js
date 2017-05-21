@@ -7,6 +7,9 @@ import AppContainer from './app/AppContainer'
 
 import { Provider } from 'react-redux'
 const store = configureStore({})
+
+
+
 const App = () => (
     <Provider store={store}>
 
